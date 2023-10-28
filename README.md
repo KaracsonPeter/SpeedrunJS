@@ -32,7 +32,41 @@ const PI = 3.1415;
 
 // Assign another type
 simpleVariable = 2;
+
+// Exponential Notation
+let y = 123e5;    // 12300000
+let z = 123e-5;   // 0.00123 
 ```
+
+## Data types
+Javascript numbers are always one type: double (64-bit floating point).  
+IEEE 754:
+- number (the fraction) is stored in bits 0 to 51
+- exponent in bits 52 to 62
+- sign in bit 63
+
+```js
+// Number
+let a = 1.1
+```
+
+Other types:
+```js
+// Strings
+a = "str"
+// Booleans
+let x = true;
+// Object (detailed explanation later on)
+const human = {name:"Joe", color:"white"};
+// Array object (detailed explanation later on)
+const cars = ["VW", "Volvo", "BMW"];
+// Date object (detailed explanation later on)
+const date = new Date("2022-03-25");
+// None type
+let x = NaN;
+let y = Infinity;
+```
+
 
 ## Operators
 ### Arithmetic Operators
