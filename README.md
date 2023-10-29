@@ -217,4 +217,46 @@ for (let i = 0; i < 4; i++) {
 ^5; // XOR
 >>> // unsigned right shift
 ```
+## Functions
+Functions or methods are special type of variables. The difference is that they do not define a number. Instead of that they define a code fragment within the scope of the function. This code can be `called` multiple times as we will see.  
+Previously, we have discussed that scope is defined by curly bracket: `{}`. This is also true for `function` definitions.  
+In JS, you can define a function with the help of keyword `function`:
+```js
+function addition(local_a, local_b) {
+	let local_result = local_a + local_b;
+    return local_result;
+}
+```
+The name of this function definition above is `addition`. After this name, you must place round brackets. Inside that, you can specify so-called `parameter`s of the function, if you want to. These are the inputs of the function. These variables belong to the scope of the function and must be specified by the caller!  
+Keyword `return` signs what should be given back as the result (or output) of the function call. This output is passed to the caller.  
+You don't need to specify these always. You can have as many inputs or parameters as you want, and you can have or cannot have an output or return value. The following definition has no parameters and return at all:
+```js
+function this_function_has_no_parameters_and_return_value() {
+  // log something into the console
+  console.log("Hello world!");
+}
+```
+You can `call` your defined code part (function), by writing it's name and parameters like this:a
+```js
+let global_result = addition(2, 3);  // global_result shall be 5
+```
+Note: when you call your function, you must specify the exact same amount of parameters in the correct order!  
+
+Just to see that functions are variables as-well:
+```js
+let redefined_addition = addition;
+let global_result_2 = redefined_addition(2, 3); // global_result_2 is also 5
+```
+### Lambda
+Lambda functions are "brief" functions which have no name but specifies a code part just like a normal function definition.
+You can assign these un-named functions to variables:
+```js
+const addition_2 = (a, b) => a + b;
+// call it
+let res = addition_2(1, 2); // res = 3
+const multiply = (x, y) => {
+  return x * y;
+}
+let mul = multiply(3, 3); // mul = 9
+```
 
