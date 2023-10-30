@@ -260,3 +260,31 @@ const multiply = (x, y) => {
 let mul = multiply(3, 3); // mul = 9
 ```
 
+## Object
+Objects are special constant variable types. You can group specific variables together which constructs a hole logical unit.  
+Like mathematical constants:
+```js
+const mathConstants = {
+  PI: 3.1415,
+  E: 2.73
+};
+```
+You can also specify functions in an object since, functions are also variables:
+```js
+const math = {
+  PI: 3.1415,
+  E: 2.73,
+  perimeter : function(R) {
+    return 2 * R * this.PI;
+  }
+};
+```
+You can refer to an object by its name (just like any variable):
+```js
+// And you can access its properties or member variables by a '.' character
+math.PI;
+let p = math.perimeter(2); // p = 2 * 2 * 3.1415 = 12.56
+```
+You could also see the work "`this`". "`this`" is a reserved keyword in JS. Just like `let`, `const` or `function`.  
+"`this`" refers to the owner of the scope, in which it can be found. E.g.: You can find a "`this`" in the scope of `math`. 
+Therefore, "`this`" is basically `math`, because `math` is the owner of the scope in which the related "`this`" keyword can be found.
