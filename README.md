@@ -288,3 +288,79 @@ let p = math.perimeter(2); // p = 2 * 2 * 3.1415 = 12.56
 You could also see the work "`this`". "`this`" is a reserved keyword in JS. Just like `let`, `const` or `function`.  
 "`this`" refers to the owner of the scope, in which it can be found. E.g.: You can find a "`this`" in the scope of `math`. 
 Therefore, "`this`" is basically `math`, because `math` is the owner of the scope in which the related "`this`" keyword can be found.
+
+## Class
+Class is a special type of variable. I promise this is the last type xd.  
+This is the last type, because it can be kinda anything you want. You can define it whatever you would like to, since it is a **template** or **blueprint** or factory of an object. (like a shoemaker's cleat)  
+
+How? 
+### Why? Why do we need this at all?  
+In some projects, which are more complex than a "Hello world!" one, you would probably need to implement many things.
+E.g.: in a game or in a store, you might need to have fruits to be sold. You want to have multiple ones so, you start to implement them one by one. You start to specify their type, color, price, taste, shape, etc. After the 3nd fruit implementation you realize that your code structure is pretty similar fruit by fruit and start to think... Hmmm; Isn't there a way to merge all of these properties and call them at once when it's needed?  
+And yes, there is a way! It is called a `class`. It's like creating your own building blocks from your childhood.  
+
+### How?
+You can see the syntax below in the example. (Syntax is a set of rules in any language which determine how it looks like and works.)  Keyword `class` annotates JS interpreter that a custom type definition shall start by a specifying a class name (`Fruit`) and its scope.  
+You ask JS interpreter to create a class instance aka an object for you. This "request" starts with the keyword `new`. After this, you need to specify the name of the class, you want to instantiate.  
+A class is a collection of variables, which can be any variable type: float, string, function, class...  
+You have the choice to define a special function into your class definition called the `constructor`. 
+This function is always executed, when an object is instantiated from the class definition. Through the `constructor`, you can initiate the properties (aka member variables) of the class. This is nothing special, just a function, to which you can pass parameters...  
+But not like this:
+```js
+constructor("Apple", 10, "Red")
+```
+But like this:
+```js
+new Fruit("Apple", 10, "Red");
+```
+By this, constructor shall get your passed parameters and you can use it to define your properties.  
+
+You can also define member function of a class as you can see below and you can reach it by the name of the class instance (or object).
+
+```js
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+
+class Fruit {
+  constructor(type, volume, color) {
+    this.type = type;
+    this.volume = volume;
+    this.color = color;
+  }
+  
+  bite() {
+  	this.volume -= 1;
+  }
+};
+
+const init_type = "Mango";
+// Instantiate (create) a new fruit object
+const fruit = new Fruit(init_type, 10, "Yellow");
+// Get volume of brand-new fruit
+const volume_before_bite = fruit.volume;
+// Cheat the game to get an apple
+fruit.type = "Apple";
+// Let's bite it!
+fruit.bite();
+// Yam yam
+fruit.bite();
+// Yam
+fruit.bite();
+// Let's see what's left from our Fruit instance called fruit
+const volume_after_some_bite = fruit.volume;
+
+const bites = volume_before_bite - volume_after_some_bite;
+
+document.getElementById("demo").innerHTML = "User bit " + bites + " times the fruit which is a " + fruit.type + "!";
+
+</script>
+
+</body>
+</html>
+```
+
