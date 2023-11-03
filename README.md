@@ -36,6 +36,17 @@ simpleVariable = 2;
 // Exponential Notation
 let y = 123e5;    // 12300000
 let z = 123e-5;   // 0.00123 
+
+// BigInt (long integers)
+BigInt(617832459823491257);
+
+// Different representations of byte contents
+// Hexadecimal
+let hex = 0x019ABCDEFn;
+// Octal
+let oct = 0o701234567n;
+// Binary
+let bin = 0b10101010n;
 ```
 
 ## Data types
@@ -48,6 +59,27 @@ IEEE 754:
 ### Number
 ```js
 let a = 1.1
+```
+#### Members methods
+Returns a number:
+```js
+toString()	    // as a string
+toExponential() // written in exponential notation
+toFixed()       // written with a number of decimals
+toPrecision()   // written with a specified length
+ValueOf()       // as a number
+```
+
+#### Properties
+```js
+EPSILON           // The difference between 1 and the smallest number > 1.
+MAX_VALUE         // The largest number possible in JavaScript
+MIN_VALUE         // The smallest number possible in JavaScript
+MAX_SAFE_INTEGER  // The maximum safe integer (253 - 1)
+MIN_SAFE_INTEGER  // The minimum safe integer -(253 - 1)
+POSITIVE_INFINITY // Infinity (returned on overflow)
+NEGATIVE_INFINITY // Negative infinity (returned on overflow)
+NaN               // A "Not-a-Number" value
 ```
 
 ### Booleans
