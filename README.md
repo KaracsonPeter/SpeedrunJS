@@ -45,26 +45,99 @@ IEEE 754:
 - exponent in bits 52 to 62
 - sign in bit 63
 
+### Number
 ```js
-// Number
 let a = 1.1
 ```
 
-Other types:
+### Booleans
 ```js
-// Strings
-a = "str"
-// Booleans
 let x = true;
-// Object (detailed explanation later on)
+```
+
+### Object (Detailed explanation later.)
+```js
 const human = {name:"Joe", color:"white"};
-// Array object (detailed explanation later on)
+```
+
+### Array 
+This is a special standard JS class. (Detailed explanation later.)
+```js
 const cars = ["VW", "Volvo", "BMW"];
-// Date object (detailed explanation later on)
-const date = new Date("2022-03-25");
-// None type
+```
+
+### None or Infinity type
+```js
 let x = NaN;
 let y = Infinity;
+```
+
+### String
+String is a special standard JS class. We will talk about classes later. You can skip this chapter and after classes, you will have a better understanding of this.  
+
+#### Define strings
+```js
+// Fine
+let name_0 = "John";
+let name_1 = "John";
+name_0 == name_1; // true
+name_0 === name_1; // also true
+
+// Also fine:
+let name_2 = new String("Mary");
+BUT!
+let name_3 = new String("Mary");
+name_2 == name_3; // this is false
+name_2 === name_3; // also false
+```
+
+#### Template Strings / Literals
+Instead of adding strings and variables together, the best-practice is to use Template Literals.
+```js
+let x = 2;
+let y = "four";
+`${x} * ${x} = ${y}`;  // "2 * 2 = four"
+`<h2>${x} * ${x} = ${y}</h2>` // Header2: "2 * 2 = four"
+```
+
+#### String member (property) variables
+See documentation:
+```js
+length
+```
+
+#### String member (property) functions
+See documentation:
+```js
+slice()
+substring()
+substr()
+replace()
+replaceAll()
+toUpperCase()
+toLowerCase()
+concat()
+trim()
+trimStart()
+trimEnd()
+padStart()
+padEnd()
+charAt()
+charCodeAt()
+split()
+indexOf()
+lastIndexOf()
+search()
+match()
+matchAll()
+includes()
+startsWith()
+endsWith()
+```
+
+### Date object (detailed explanation later on)
+```js
+const date = new Date("2022-03-25");
 ```
 
 
