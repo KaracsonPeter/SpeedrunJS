@@ -92,17 +92,114 @@ let x = true;
 const human = {name:"Joe", color:"white"};
 ```
 
-### Array 
-This is a special standard JS class. (Detailed explanation later.)
-```js
-const cars = ["VW", "Volvo", "BMW"];
-```
-
 ### None or Infinity type
 ```js
 let x = NaN;
 let y = Infinity;
 ```
+
+### Array 
+This is a special standard JS class. (Detailed explanation later.)
+```js
+const nums_1 = [1,2,3];
+let nums_2 = [4,5,6];
+```
+Difference between const and let is only that the reference to which the defined name points can (let) or cannot (const) be changed.
+```js
+num_2 = num_1; // Works, num_2 will be [1,2,3]
+// num_1 = num_2; // ERROR
+```
+Overwrite a value at an index:
+```js
+nums_1[0] = 5; // This will work since we did not change the reference, only the value behind it
+```
+#### Properties of array objects
+```js
+const testArray = [1, 2, 3]
+testArray.length // - number of elements in the array
+testArray.prototype.newCustomElement  // - allows you to specify custom properties to your array object
+testArray.constructor
+testArray.input
+testArray.index
+```
+
+#### Functions of array objects
+toString() - convert array content to string
+```js
+const testArray = [1, 2, 3];
+testArray.toString(); // String: "1,2,3"
+```
+forEach() - iterate through array elements
+```js
+// Every function is a Callback function if it is called by code parts other than you wrote.
+const testArray = [1, 2, 3]
+let sum = 0;
+testArray.forEach(callbackFunction);
+function callbackFunction(testNumber) {
+  sum += testNumber;
+}
+```
+push() - append element at the end of the array
+```js
+const testArray = [1, 2, 3];
+let testArrayLength = testArray.push(4); // now testArray = [1, 2, 3, 4]
+```
+pop() - take out the last element to your variable
+```js
+const testArray = [1, 2, 3];
+let lastElement = testArray.pop(); // now testArray = [1, 2], lastElement = 3
+```
+every() - Returns all elements meets the criteria of callback function
+some() - Returns true if any of the array elements meets callback criteria
+```js
+const testArray = [1, 2, 3];
+let allLargerThanZero = testArray.every(conditionFunction); // true
+function conditionFunction(passedNumber, index, array) {
+  return passedNumber > 0;
+}
+// Same logic for "some()"
+```
+concat() - Concatenate 2 array together:
+```js
+const testArray_1 = [1, 2];
+const testArray_2 = [3, 4];
+const result = testArray_1.concat(testArray_2); // result is [1, 2, 3, 4]
+```
+join() - Creates a string from the array, where elements are separated by a specific user defined string
+```js
+const testArray = [1, 2, 3];
+let csvStr = testArray.join('; '); // csvStr = "1; 2; 3"
+```  
+
+flat() - Flatten an array of arrays to a single array
+```js
+const testArray = [[[1, 2],[3, 4]],[5]];
+const flattenedArray = testArray.flat(); // flattenedArray = [1, 2, 3, 4, 5]
+```  
+
+splice() - Insert multiple elements into an array with optional overwrite N of them.  
+```js
+const letters = ['a', 'z', 'e'];
+const index = 1;
+const overwrite = 1;
+letters.splice(index, overwrite, 'b', 'c', 'd'); // letters = [a,b,c,d,e]
+```
+
+slice() -   
+```js
+const nums = [-2, -1, 0, 1, 2];
+const zPlus = nums.slice(2); // zPlus = [0, 1, 2]
+```
+
+##### See a [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) for other functions:  
+shift(), unshift() - Same as push and pop but operates at the front of the array  
+indexOf() - Returns the first index of the searched element  
+lastIndexOf() - Returns the last index of the searched element  
+filter() - Subset shall returned from the original array. These subset elements meets the criteria of a callback function.  
+map() - Creates a new array by performing a function on each array element  
+from() - Returns an array object from any object defining property "length"  
+includes() - Returns if an element is within an array or not  
+delete() - Creates an undefined hole on your array, wherever you want  
 
 ### String
 String is a special standard JS class. We will talk about classes later. You can skip this chapter and after classes, you will have a better understanding of this.  
