@@ -566,3 +566,129 @@ document.getElementById("demo").innerHTML = "User bit " + bites + " times the fr
 </html>
 ```
 
+## Loops
+Loops are special range of codes defined by a {scope} just like functions. But here the code in the curly bracket is executed again and again until the condition of the loop becomes false.  
+There are 2 types of loops defined by keyword `for` and `while`. You can define your "running" condition after these keywords. Also, from any loop, you can escape by the reserved word `break`, regardless of the state of the condition after `for` or `while`.
+
+### for
+You can create a for loop by giving it 3 optional expressions in round brackets, separated by ";"s.  
+ - First shall be executed before the first execution of the code within the scope of the loop
+ - The second expression is the condition and shall be evaluated before each potential execution of the code in the for loop. If it is false, the next iteration is skipped and other code can run after the loop.
+ - The third one is executed after every execution of the code of the loop.  
+
+Examples:
+```js
+// Add numbers from 1 to 5
+let sum = 0;
+for (let i = 1; i <= 5; i++) {
+  sum += i;
+} // sum is 15 now
+```
+
+```js
+// Add numbers from 1 to 5, 3 times
+sum = 0;
+for (let k = 0; k < 3; k++) {
+  for (let i = 1; i <= 5; i++) {
+    sum += i;
+  }
+} // sum is 45 now
+```
+
+```js
+// Define multiple variables at init
+let sum = 0;
+const partial_results = [5];
+for (let i = 0, j = 1; j <= 5; i++, j++) {
+  sum += j;
+  partial_results[i] = sum;
+}
+// now partial_results = [1, 3, 6, 10, 15] and sum = 15
+```
+```js
+// Infinite loop
+for (;true;) {
+  // Add your infinitely executed code here
+}
+```
+```js
+// Break the infinity loop
+for (let i = 0; true; i++) {
+  if (i > 5):
+    break;
+}
+```
+
+### while
+While is the same as for but you only have to define the condition.
+```js
+// Game Loop
+while (true)
+{
+  let exit = processInput();
+  if (exit):
+    break;
+  update();
+  render();
+}
+```
+
+## Conditional statements (if-else & switch)
+Live with us through a beautiful year by using the following fantastic state machine:
+```js
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+ const Seasons = {
+ 	Summer: "Summer",
+ 	Autumn: "Autumn",
+ 	Winter: "Winter",
+ 	Spring: "Spring"
+ }
+ 
+let state = Seasons.Summer;
+let test;
+
+for (let i = 0; i < 4; i++) {
+  switch (state) {
+    case Seasons.Summer: {
+      text = "Summer started; ";
+      // Do something during Summer
+      text += "Summer past; ";
+      state = Seasons.Autumn;
+      break;
+    }
+    case "Autumn": {
+      text += "Autumn started; ";
+      // Do something during Autumn
+      text += "Autumn past; ";
+      state = Seasons.Winter;
+      break;
+    }
+    case Seasons.Winter: {
+      text += "Winter started; ";
+      // Do something during Winter
+      text += "Winter past; ";
+      state = Seasons.Spring;
+      break;
+    }
+    case "Spring": {
+      text += "Spring started; ";
+      // Do something during Spring
+      text += "Spring past; ";
+      break;
+    }
+    default:
+      text = "unknown season";
+  }
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+```
