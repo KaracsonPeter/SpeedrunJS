@@ -605,17 +605,42 @@ for (let i = 0, j = 1; j <= 5; i++, j++) {
 }
 // now partial_results = [1, 3, 6, 10, 15] and sum = 15
 ```
+
 ```js
 // Infinite loop
 for (;true;) {
   // Add your infinitely executed code here
 }
 ```
+
 ```js
 // Break the infinity loop
 for (let i = 0; true; i++) {
   if (i > 5):
     break;
+}
+```
+
+#### for - of
+Used to iterate over the values of an iterable object, such as arrays and strings.
+```js
+const l = ["Hello there!", "General Kenoby!"];
+let text = "";
+
+for (let x of l) {
+  text += x + "<br>";
+}
+```
+
+#### for - in
+Used to iterate over the enumerable properties of an object.
+```js
+  // text shall be: At 1700590481 the position of the vehicle is__x = 0.31__y = 0.55__z = 4.1
+const message = {timestamp: 1700590481, pos: {x: 0.31, y: 0.55, z: 4.1}}; 
+
+let text = `At ${message.timestamp} the position of the vehicle is`;
+for (let c in message.pos) {
+  text += `__${c} = ${message.pos[c]}`;
 }
 ```
 
@@ -631,6 +656,18 @@ while (true)
   update();
   render();
 }
+```
+
+#### do - while
+```js
+// series shall be [6]
+let series = [];
+let i = 6;
+do {
+  series.push(i);
+  i++;
+}
+while (i < 3); 
 ```
 
 ## Conditional statements (if-else & switch)
